@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Entities.Person>
+
+<table id="example" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Cost Center</th>
+            <th>Cost Center New</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Cost Center</th>
+            <th>Cost Center New</th>
+            <th>Phone</th>
+        </tr>
+    </tfoot>
+    <tbody>
+@foreach (var item in Model)
+{
+
+    <tr>
+        <td>@item.Name</td>
+        <td>@item.Position</td>
+        <td>@item.Office</td>
+        <td>@item.ChemCost</td>
+        <td>@item.FMCCost</td>
+        <td>@item.Phone</td>
+    </tr>
+}
+        
+    </tbody>
+</table>
+
+@section Scripts {
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
+
+<script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.js">
+</script>
+<link rel="stylesheet"
+      href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet"
+      href="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.css">
+
+<script>
+        $(document).ready(function() {
+            $('#example').dataTable({
+                responsive: true
+            });
+        });
+</script>
+    }

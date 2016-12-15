@@ -1,0 +1,8 @@
+H:\VS\CostCenter\TestingADConection\bin\Debug\TestingADConection.exe.config
+H:\VS\CostCenter\TestingADConection\bin\Debug\TestingADConection.exe
+H:\VS\CostCenter\TestingADConection\bin\Debug\TestingADConection.pdb
+H:\VS\CostCenter\TestingADConection\obj\Debug\TestingADConection.csprojResolveAssemblyReference.cache
+H:\VS\CostCenter\TestingADConection\obj\Debug\TestingADConection.exe
+H:\VS\CostCenter\TestingADConection\obj\Debug\TestingADConection.pdb
+H:\VS\CostCenter\TestingADConection\bin\Debug\Entities.dll
+H:\VS\CostCenter\TestingADConection\bin\Debug\Entities.pdb

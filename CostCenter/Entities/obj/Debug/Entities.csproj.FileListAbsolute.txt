@@ -1,0 +1,4 @@
+H:\VS\CostCenter\Entities\bin\Debug\Entities.dll
+H:\VS\CostCenter\Entities\bin\Debug\Entities.pdb
+H:\VS\CostCenter\Entities\obj\Debug\Entities.dll
+H:\VS\CostCenter\Entities\obj\Debug\Entities.pdb
