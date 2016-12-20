@@ -3,8 +3,27 @@
 @{
     ViewBag.Title = "Home Page";
 }
-@section scripts {
-    <link rel="stylesheet" type="text/css"
+<p style="display:block;line-height: 70px; width:100%; text-align:center; margin:0 auto;">.</p>
+    @section scripts {
+        <link rel="stylesheet" type="text/css"
+              href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.min.css" />
+        <link rel="stylesheet" type="text/css"
+              href="https://cdn.datatables.net/1.10.13/css/dataTables.foundation.min.css" />
+        <link rel="stylesheet" type="text/css"
+              href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.foundation.min.css" />
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.13/js/dataTables.foundation.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.foundation.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+        <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+        <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+        <script src="//cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"></script>
+        <script src="//cdn.datatables.net/buttons/1.2.4/js/buttons.print.min.js"></script>
+        <script src="//cdn.datatables.net/buttons/1.2.4/js/buttons.colVis.min.js"></script>
+        <script>
+            @*<link rel="stylesheet" type="text/css"
           href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" type="text/css"
           href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css" />
@@ -17,7 +36,7 @@
     <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
     <script src="//cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"></script>
     <script src="//cdn.datatables.net/buttons/1.2.4/js/buttons.print.min.js"></script>
-    <script>
+    <script>*@
         @*var dataset = @Html.Raw(Json.Encode(Model));
     var table = $('#example').DataTable();
     table.columns = [
@@ -29,94 +48,81 @@
                    { data: "FMCCost", "orderable": true },
                     { data: "Phone", "orderable": true },
     ];
-    
+
     var buttons = new $.fn.dataTable.Buttons(table, {
         buttons: [
            'excelFlash','csvFlash'
         ]
     }).container().appendTo($('#buttons'));*@
-        var dataset = @Html.Raw(Json.Encode(Model));
-        $(document).ready(function () {
-            var table = $('#example').DataTable({
-                processing : true,
+            var dataset = @Html.Raw(Json.Encode(Model));
+            $(document).ready(function () {
+                var table = $('#example').DataTable({
+                     processing : true,
+                    lengthChange: true,
+                    buttons: ['excel', 'csv' ],
+                    data: dataset,
+                    columns: [
+                        { data: "ID" },
+                        { data: "Name" },
+                        { data: "Office" },
+                        { data: "Position" },
+                        { data: "Office" },
+                        { data: "ChemCost" },
+                        { data: "FMCCost" },
+                        { data: "Phone" }
+                    ]
+                });
+                table.buttons().container()
+            .appendTo( '#example_wrapper .small-6.columns:eq(1)' );
+                //var buttons = new $.fn.dataTable.Buttons(table, {
+                //    buttons: [
+                //       'excelFlash','csvFlash'
+                //    ]
+                //}).container().appendTo($('#buttons'));
+            });
 
-                data: dataset,
-                columns: [
-                    { data: "ID" },
-                    { data: "Name" },
-                    { data: "Office" },
-                    { data: "Position" },
-                    { data: "Office" },
-                    { data: "ChemCost" },
-                    { data: "FMCCost" },
-                    { data: "Phone" }
-                ]
-           });
-           var buttons = new $.fn.dataTable.Buttons(table, {
-               buttons: [
-                  'excelFlash','csvFlash'
-               ]
-           }).container().appendTo($('#buttons'));
-        });
+        </script>
 
-    </script>
+    }
 
-}
-@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <div class="btn btn-group" role="group">
-        <input type="file" class="btn btn-info" name="file" id="file" /> <span class="btn"></span>
-        @*<label class="btn btn-default btn-file">
-            Browse <input type="file" style="display: none;">
-        </label>*@
-        <input type="submit" class="btn btn-danger" value="Upload" />@*<span class="btn"></span><span class="btn"></span>*@
-        <span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span>
-        <span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span>
-        <span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span>
-        <span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span>
-        <span id="buttons" class="btn "></span>
-
-    </div>
-}
-
-<table id="example" class="display" cellspacing="0" width="100%">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Office</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>ChemCost</th>
-           <th>FMCCost</th>
-            <th>Phone</th>
-        </tr>
-    </thead>
-    <tfoot>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Office</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>ChemCost</th>
-            <th>FMCCost</th>
-            <th>Phone</th>
-        </tr>
-    </tfoot>
-    @*<tbody>
-    @foreach (var item in Model)
-        {
-
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
             <tr>
-                <td>@item.Name</td>
-                <td>@item.Position</td>
-                <td>@item.Office</td>
-                <td>@item.ChemCost</td>
-                <td>@item.FMCCost</td>
-                <td>@item.Phone</td>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Office</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>ChemCost</th>
+                <th>FMCCost</th>
+                <th>Phone</th>
             </tr>
-        }
+        </thead>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Office</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>ChemCost</th>
+                <th>FMCCost</th>
+                <th>Phone</th>
+            </tr>
+        </tfoot>
+        @*<tbody>
+            @foreach (var item in Model)
+                {
 
-            </tbody>*@
-</table>
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Position</td>
+                        <td>@item.Office</td>
+                        <td>@item.ChemCost</td>
+                        <td>@item.FMCCost</td>
+                        <td>@item.Phone</td>
+                    </tr>
+                }
+
+                    </tbody>*@
+    </table>
