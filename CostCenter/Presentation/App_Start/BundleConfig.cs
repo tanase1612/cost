@@ -8,7 +8,8 @@ namespace Presentation
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.IgnoreList.Clear();
+
+                 bundles.IgnoreList.Clear();
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -24,9 +25,12 @@ namespace Presentation
                      "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.yeti.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/DataTables/css/jquery.dataTables.css",
+                     "~/Content/DataTables/css/buttons.dataTables.min.css"));
         }
     }
 }

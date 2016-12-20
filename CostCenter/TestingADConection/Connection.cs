@@ -11,11 +11,13 @@ namespace TestingADConection
 {
     public class Connection
     {
-       private Dictionary<string, Person> dic = new Dictionary<string, Person>();
+       private Dictionary<string, Person> dic;
 
         private static Connection instance;
 
-        private Connection() { }
+        private Connection() {
+            this.dic = new Dictionary<string, Person>();
+        }
 
         public static Connection Instance
         {
@@ -32,11 +34,23 @@ namespace TestingADConection
         {
             return dic;
         }
+        public void RunTest()
+        {
+            Person per = new Person { Name = "Adi Works", Position = "Same", Office = "Dubai", ChemCost = "44646 IT", FMCCost = "", Phone = "46446" };
+            dic.Add("TanaseA", per);
+            Console.WriteLine(dic.SingleOrDefault(c => c.Key == "TanaseA").Value.Name.ToString());
+            Console.ReadKey();
+        }
 
+        public void AddUser(string key, Person per)
+
+        {
+            dic.Add(key, per);
+        }
         public void Run()
         {
 
-            //Person per = new Person {Name ="Adi Works", Position="", Office = "", ChemCost = "", FMCCost ="", Phone ="" };
+           // Person per = new Person {Name ="Adi Works", Position="Same", Office = "Dubai", ChemCost = "44646 IT", FMCCost ="", Phone ="46446" };
             string Name = "";
             string Position = "";
             string Office = "";

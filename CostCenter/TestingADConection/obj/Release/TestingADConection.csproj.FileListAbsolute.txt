@@ -1,0 +1,8 @@
+C:\Users\tanas\Desktop\Cheminova\Projects\cost\CostCenter\TestingADConection\bin\Release\TestingADConection.exe.config
+C:\Users\tanas\Desktop\Cheminova\Projects\cost\CostCenter\TestingADConection\bin\Release\TestingADConection.exe
+C:\Users\tanas\Desktop\Cheminova\Projects\cost\CostCenter\TestingADConection\bin\Release\TestingADConection.pdb
+C:\Users\tanas\Desktop\Cheminova\Projects\cost\CostCenter\TestingADConection\bin\Release\Entities.dll
+C:\Users\tanas\Desktop\Cheminova\Projects\cost\CostCenter\TestingADConection\bin\Release\Entities.pdb
+C:\Users\tanas\Desktop\Cheminova\Projects\cost\CostCenter\TestingADConection\obj\Release\TestingADConection.csprojResolveAssemblyReference.cache
+C:\Users\tanas\Desktop\Cheminova\Projects\cost\CostCenter\TestingADConection\obj\Release\TestingADConection.exe
+C:\Users\tanas\Desktop\Cheminova\Projects\cost\CostCenter\TestingADConection\obj\Release\TestingADConection.pdb

@@ -2,3 +2,7 @@ H:\VS\CostCenter\Entities\bin\Debug\Entities.dll
 H:\VS\CostCenter\Entities\bin\Debug\Entities.pdb
 H:\VS\CostCenter\Entities\obj\Debug\Entities.dll
 H:\VS\CostCenter\Entities\obj\Debug\Entities.pdb
+C:\Users\tanas\Desktop\Cheminova\Projects\cost\CostCenter\Entities\bin\Debug\Entities.dll
+C:\Users\tanas\Desktop\Cheminova\Projects\cost\CostCenter\Entities\bin\Debug\Entities.pdb
+C:\Users\tanas\Desktop\Cheminova\Projects\cost\CostCenter\Entities\obj\Debug\Entities.dll
+C:\Users\tanas\Desktop\Cheminova\Projects\cost\CostCenter\Entities\obj\Debug\Entities.pdb

@@ -1,0 +1,5 @@
+C:\Users\tanas\Desktop\Cheminova\Projects\cost\CostCenter\Entities\bin\Release\Entities.dll
+C:\Users\tanas\Desktop\Cheminova\Projects\cost\CostCenter\Entities\bin\Release\Entities.pdb
+C:\Users\tanas\Desktop\Cheminova\Projects\cost\CostCenter\Entities\obj\Release\Entities.dll
+C:\Users\tanas\Desktop\Cheminova\Projects\cost\CostCenter\Entities\obj\Release\Entities.pdb
+C:\Users\tanas\Desktop\Cheminova\Projects\cost\CostCenter\Entities\obj\Release\Entities.csprojResolveAssemblyReference.cache

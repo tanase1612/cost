@@ -1,27 +1,33 @@
-﻿using Entities;
+﻿
+using Presentation.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using TestingADConection;
+
 
 namespace Presentation.Controllers
 {
     public class HomeController : Controller
     {
-        Connection con = Connection.Instance;
-        public ActionResult Index()
+        private RestUsers ru = new RestUsers();
+        
+        public async Task< ActionResult> Index()
         {
-          List<Person> users =  con.GetAllUsers().Values.ToList();
-            return View(users);
+            List<Person> list = await ru.GetUsersAsync();
+            //list.Sort();
+            return View(list);
         }
 
-        public ActionResult About()
+        public async Task< ActionResult> About()
         {
-            ViewBag.Message = "Your application description page.";
+            var list = await  ru.GetUsersAsync();
+           // ViewBag.Message = list.FirstOrDefault().ToString();
 
-            return View();
+            return View(list);
         }
 
         public ActionResult Contact()

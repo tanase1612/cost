@@ -1,0 +1,122 @@
+﻿@model IEnumerable<ClientChemInfo.Models.Person>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+@section scripts {
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css" />
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
+    <script src="//cdn.datatables.net/buttons/1.2.4/js/buttons.flash.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="//cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"></script>
+    <script src="//cdn.datatables.net/buttons/1.2.4/js/buttons.print.min.js"></script>
+    <script>
+        @*var dataset = @Html.Raw(Json.Encode(Model));
+    var table = $('#example').DataTable();
+    table.columns = [
+     { data: "ID", "orderable": true },
+                 { data: "Name", "orderable": true },
+                 { data: "Position", "orderable": true },
+                 { data: "Office", "orderable": true },
+                  { data: "ChemCost", "orderable": true },
+                   { data: "FMCCost", "orderable": true },
+                    { data: "Phone", "orderable": true },
+    ];
+    
+    var buttons = new $.fn.dataTable.Buttons(table, {
+        buttons: [
+           'excelFlash','csvFlash'
+        ]
+    }).container().appendTo($('#buttons'));*@
+        var dataset = @Html.Raw(Json.Encode(Model));
+        $(document).ready(function () {
+            var table = $('#example').DataTable({
+                processing : true,
+
+                data: dataset,
+                columns: [
+                    { data: "ID" },
+                    { data: "Name" },
+                    { data: "Office" },
+                    { data: "Position" },
+                    { data: "Office" },
+                    { data: "ChemCost" },
+                    { data: "FMCCost" },
+                    { data: "Phone" }
+                ]
+           });
+           var buttons = new $.fn.dataTable.Buttons(table, {
+               buttons: [
+                  'excelFlash','csvFlash'
+               ]
+           }).container().appendTo($('#buttons'));
+        });
+
+    </script>
+
+}
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="btn btn-group" role="group">
+        <input type="file" class="btn btn-info" name="file" id="file" /> <span class="btn"></span>
+        @*<label class="btn btn-default btn-file">
+            Browse <input type="file" style="display: none;">
+        </label>*@
+        <input type="submit" class="btn btn-danger" value="Upload" />@*<span class="btn"></span><span class="btn"></span>*@
+        <span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span>
+        <span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span>
+        <span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span>
+        <span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span><span class="btn"></span>
+        <span id="buttons" class="btn "></span>
+
+    </div>
+}
+
+<table id="example" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Office</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>ChemCost</th>
+           <th>FMCCost</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Office</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>ChemCost</th>
+            <th>FMCCost</th>
+            <th>Phone</th>
+        </tr>
+    </tfoot>
+    @*<tbody>
+    @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Position</td>
+                <td>@item.Office</td>
+                <td>@item.ChemCost</td>
+                <td>@item.FMCCost</td>
+                <td>@item.Phone</td>
+            </tr>
+        }
+
+            </tbody>*@
+</table>

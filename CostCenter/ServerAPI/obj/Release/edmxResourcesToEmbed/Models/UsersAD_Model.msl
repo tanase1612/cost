@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UsersADModelStoreContainer" CdmEntityContainer="UsersADEntities">
+    <EntitySetMapping Name="UserAD">
+      <EntityTypeMapping TypeName="UsersADModel.UserAD">
+        <MappingFragment StoreEntitySet="UserAD">
+          <ScalarProperty Name="KEY_SAM" ColumnName="KEY_SAM" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Office" ColumnName="Office" />
+          <ScalarProperty Name="ChemCost" ColumnName="ChemCost" />
+          <ScalarProperty Name="FMCCost" ColumnName="FMCCost" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

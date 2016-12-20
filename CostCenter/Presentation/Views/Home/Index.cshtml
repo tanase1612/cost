@@ -1,8 +1,64 @@
-﻿@model IEnumerable<Entities.Person>
+﻿@model IEnumerable<Presentation.Models.Person>
+@section scripts {
+    <script src="~/Scripts/DataTables/jquery.dataTables.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+          href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css"
+          href="//cdn.datatables.net/tabletools/2.2.4/css/dataTables.tableTools.css" />
+    <script>
+        var dataset = @Html.Raw(Json.Encode(Model));
+        $(document).ready(function () {
+            $('#example').dataTable({
+                //serverSide: true,
+                //processing: true,
 
-<table id="example" class="display" cellspacing="0" width="100%">
+                data : dataset,
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                columns: [
+                     { data: "ID", "orderable": true },
+                 { data: "Name", "orderable": true },
+                 { data: "Position", "orderable": true },
+                 { data: "Office", "orderable": true },
+                  { data: "ChemCost", "orderable": true },
+                   { data: "FMCCost", "orderable": true },
+                    { data: "Phone", "orderable": true },
+                ],
+                //ajax: {
+                //    url: "http://localhost:51020/api/Values",
+                //    dataSrc: ''
+                //},
+                deferRender: true,
+                order: [[0, "asc"]]
+
+            });
+            $('#example').show();
+        });
+
+
+    </script>
+
+
+}
+<form action="Index" method="post" enctype="multipart/form-data">
+    <div class="btn btn-group" role="group">
+        <input type="file" class="btn btn-info" name="file" id="file" /> <span class="btn"></span>
+     
+        <input type="submit" class="btn btn-danger" value="Upload"/><span class="btn"></span>
+        <button id="export" type="button">Export</button>
+    </div>
+    @ViewBag.Message
+</form>
+
+<table id="example" class="display" cellspacing="0" width="100%" style="display:none">
     <thead>
         <tr>
+           
             <th>Name</th>
             <th>Position</th>
             <th>Office</th>
@@ -13,6 +69,7 @@
     </thead>
     <tfoot>
         <tr>
+           
             <th>Name</th>
             <th>Position</th>
             <th>Office</th>
@@ -21,39 +78,22 @@
             <th>Phone</th>
         </tr>
     </tfoot>
-    <tbody>
-@foreach (var item in Model)
-{
+    @*<tbody>*@
+        @*@foreach (var item in Model)
+            {
 
-    <tr>
-        <td>@item.Name</td>
-        <td>@item.Position</td>
-        <td>@item.Office</td>
-        <td>@item.ChemCost</td>
-        <td>@item.FMCCost</td>
-        <td>@item.Phone</td>
-    </tr>
-}
-        
-    </tbody>
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Position</td>
+                    <td>@item.Office</td>
+                    <td>@item.ChemCost</td>
+                    <td>@item.FMCCost</td>
+                    <td>@item.Phone</td>
+                </tr>
+            }
+
+                </tbody>*@
 </table>
 
-@section Scripts {
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
 
-<script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.js">
-</script>
-<link rel="stylesheet"
-      href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet"
-      href="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.css">
 
-<script>
-        $(document).ready(function() {
-            $('#example').dataTable({
-                responsive: true
-            });
-        });
-</script>
-    }

@@ -1,0 +1,24 @@
+﻿
+    @*<button type="submit" class="btn btn-danger ">Confirm</button>*@
+<center>
+    <h1 class="text-info ">Welcome to CHEM INFO. For seeing all the users records please select <span class="text-danger">ALL Users </span>otherwise <span class="text-danger">Choose Filename</span>, than <span class="text-danger">UPLOAD</span> in order to find records from  your excel file(.xlsx). </h1>
+</center>
+
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        
+           
+                <p style="display:block;line-height: 500px; width:100%; text-align:center; margin:0 auto;">
+                    <a href="/Home/Index" class="submit btn btn-lg btn-primary">ALL USERS <i class="icon-angle-right"></i></a>
+
+                    <label class="btn btn-primary btn-xs  btn-info" for="file">
+                        @*<input id="file" type="file" style="display:none;">*@
+                        <input type="file" class="btn btn-info" name="file" id="file" />
+                    </label>
+                    <input type="submit" class="btn btn-lg btn-danger" value="Upload EXCEL" />
+                </p>
+
+        
+    }
+
+       
